@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "next": "^14.0.4",
     "vue": "^3.4.13",
     "vue-router": "^4.2.5",

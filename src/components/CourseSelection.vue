@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[500px] bg-white rounded-[10px] h-[500px] px-[60px] pt-[50px] mx-auto">
+    <div class="w-[500px] bg-white rounded-[10px]  px-[60px] pt-[50px] pb-[122px] mx-auto relative">
       <h2 class="text-xl font-medium mb-[30px]">Пожалуйста, выберите курс <br> и семестр обучения !</h2>
       <button @click="selectCourse('1 курс')"  class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px]">
         <span class="text-[#172F38] text-lg font-normal"> 1 курс</span>
@@ -13,6 +13,12 @@
       <button @click="selectCourse('4 курс')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]">
         <span class="text-[#172F38] text-lg font-normal"> 4 курс</span>
       </button>
+      <button
+      @click="goBack(faculty)"
+        class="goBackBtn  bg-[#DFF4E0] py-[15px] text-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px]  "
+      >
+        <span>Назад</span>
+      </button> 
     </div>
   </template>
 <script>
@@ -21,17 +27,42 @@ export default {
     selectCourse(course) {
       this.$store.commit('setCourse', course);
       this.$router.push({ name: 'semester' });
-    }
+    },
+    goBack(faculty) {
+      this.$store.commit("setFaculty", faculty);
+      this.$router.push({ name: "faculty" });
+    },
   }
 };
 </script>
 <style scoped>
+.goBackBtn::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  width: 24px;
+  height: 24px;
+  background-image: url("../assets/left-arrow-2.svg");
+  background-size: cover;
+}
+.goBackBtn{
+  position: absolute;
+  bottom: 40px; 
+  right: 60px;
+}
 button:hover{
   border: 1px solid #2BB231;
   background-color: #DFF4E0;
 }
 button:hover span{
   color: #2BB231;
+}
+h2{
+  color: #1C414F;
+}
+button span {
+  color: #1C414F;
 }
 button::after{
   content: '';    

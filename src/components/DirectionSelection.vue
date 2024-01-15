@@ -1,5 +1,7 @@
 <template>
-    <div class="w-[500px] bg-white rounded-[10px] h-[500px] px-[60px] pt-[50px] mx-auto">
+    <div class="px-[20px]">
+      
+      <div class="md:w-[500px] bg-white rounded-[10px] h-[500px] px-[60px] pt-[50px] mx-auto">
         <h2 class="text-xl font-medium mb-[30px]">Пожалуйста выберите свое <br> направление:</h2>
         <button @click="selectDirection('Бакалавр')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px]">
           <span class="text-[#172F38] text-lg font-normal"> Бакалавр</span>
@@ -7,6 +9,8 @@
         <button @click="selectDirection('Магистратура')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]">
           <span class="text-[#172F38] text-lg font-normal"> Магистратура</span>
         </button>
+      </div>
+
     </div>
 </template>
 <script>
@@ -23,6 +27,12 @@ export default {
 button:hover{
   border: 1px solid #2BB231;
   background-color: #DFF4E0;
+}
+h2{
+  color: #1C414F;
+}
+button span {
+  color: #1C414F;
 }
 button:hover span{
   color: #2BB231;
