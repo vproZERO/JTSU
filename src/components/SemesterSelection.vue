@@ -1,19 +1,21 @@
 <!-- components/SemesterSelection.vue -->
 <template>
-    <div class="w-[500px] bg-white rounded-[10px] h-[500px] px-[60px] pt-[50px] mx-auto relative">
-      <h2 class="text-xl font-medium mb-[30px]">Пожалуйста, выберите семестр <br> обучения !</h2>
-      <button @click="selectSemester('1 семестр')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px]">
-        <span class="text-[#172F38] text-lg font-normal"> 1 семестр</span>
-      </button>
-      <button @click="selectSemester('2 семестр')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]">
-        <span class="text-[#172F38] text-lg font-normal"> 2 семестр</span>
-      </button>
-      <button
-      @click="goBack(cource)"
-        class="goBackBtn  bg-[#DFF4E0] py-[15px] text-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative "
-      >
-        <span>Назад</span>
-      </button> 
+    <div class="px-[20px]">
+      <div class="md:w-[500px] px-[16px] pt-[24px] pb-[106px] bg-white rounded-[10px]  md:px-[60px] md:pt-[50px] md:pb-[122px] mx-auto relative">
+        <h2 class="text-xl font-medium md:mb-[30px] mb-[15px]">Пожалуйста, выберите семестр <br> обучения !</h2>
+        <button @click="selectSemester('1 семестр')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px]">
+          <span class="text-[#172F38] text-lg font-normal"> 1 семестр</span>
+        </button>
+        <button @click="selectSemester('2 семестр')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]">
+          <span class="text-[#172F38] text-lg font-normal"> 2 семестр</span>
+        </button>
+        <button
+        @click="goBack(cource)"
+          class="goBackBtn  bg-[#DFF4E0] py-[15px] text-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative "
+        >
+          <span>Назад</span>
+        </button> 
+      </div>
       <!-- Добавьте другие семестры по необходимости -->
     </div>
   </template>
@@ -45,11 +47,19 @@ button:hover{
   height: 24px;
   background-image: url("../assets/left-arrow-2.svg");
   background-size: cover;
+
 }
+
 .goBackBtn{
   position: absolute;
   bottom: 40px; 
   right: 60px;
+}
+@media screen and (max-width: 768px) {
+  .goBackBtn{
+    right: 20px;
+    bottom: 20px;
+  }
 }
 h2{
   color: #1C414F;

@@ -4,7 +4,6 @@ import router from './router';
 import store from './store';
 import './style.css'
 import AOS from 'aos'
-module.exports
 import 'aos/dist/aos.css'
 
 

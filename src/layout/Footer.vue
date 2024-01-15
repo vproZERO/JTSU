@@ -15,7 +15,7 @@
             <div class="w-[16px] h-[16px]">
               <img src="../assets/location.svg" alt="location" />
             </div>
-            <p class="text-sm font-normal max-w-[350px] text-[#1C414F]">
+            <p class="md:text-sm text-xs font-normal max-w-[350px] text-[#1C414F]">
               Ташкентская область, г Чирчик, ул Спортивная, 19
             </p>
           </div>
@@ -23,7 +23,7 @@
             <div>
               <img src="../assets/tel.svg" alt="tel" />
             </div>
-            <p class="text-sm font-normal max-w-[355px] text-[#1C414F]">
+            <p class="md:text-sm text-xs font-normal max-w-[355px] text-[#1C414F]">
               +998 90 000 00 00
             </p>
           </div>
@@ -31,7 +31,7 @@
             <div>
               <img src="../assets/email.svg" alt="email" />
             </div>
-            <p class="text-sm font-normal max-w-[355px] text-[#1C414F]">
+            <p class="md:text-sm text-xs font-normal max-w-[355px] text-[#1C414F]">
               info@gmail.com
             </p>
           </div>

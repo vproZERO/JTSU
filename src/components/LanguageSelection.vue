@@ -1,22 +1,24 @@
 <!-- components/LanguageSelection.vue -->
 <template>
-    <div class="w-[500px] bg-white rounded-[10px] h-[500px] px-[60px] pt-[50px] mx-auto relative">
-      <h2 class="text-xl font-medium mb-[30px]">Пожалуйста, выберите язык <br> обучения!</h2>
-      <button @click="selectLanguage('Узбекский язык')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px]">
-        <span class="text-[#172F38] text-lg font-normal">Узбекский язык</span>
-      </button>
-      <button @click="selectLanguage('Русский язык')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]">
-        <span class="text-[#172F38] text-lg font-normal">Русский язык</span>
-      </button>
-      <button @click="selectLanguage('Английский язык')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]">
-        <span class="text-[#172F38] text-lg font-normal">Английский язык</span>
-      </button>
-      <button
-      @click="goBack(semester)"
-        class="goBackBtn  bg-[#DFF4E0] py-[15px] text-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative "
-      >
-        <span>Назад</span>
-      </button> 
+    <div class="px-[20px]">
+      <div class="md:w-[500px] px-[16px] pt-[24px] pb-[106px] bg-white rounded-[10px]  md:px-[60px] md:pt-[50px] md:pb-[122px] mx-auto relative">
+        <h2 class="text-xl font-medium md:mb-[30px] mb-[15px]">Пожалуйста, выберите язык <br> обучения!</h2>
+        <button @click="selectLanguage('Узбекский язык')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px]">
+          <span class="text-[#172F38] text-lg font-normal">Узбекский язык</span>
+        </button>
+        <button @click="selectLanguage('Русский язык')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]">
+          <span class="text-[#172F38] text-lg font-normal">Русский язык</span>
+        </button>
+        <button @click="selectLanguage('Английский язык')" class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]">
+          <span class="text-[#172F38] text-lg font-normal">Английский язык</span>
+        </button>
+        <button
+        @click="goBack(semester)"
+          class="goBackBtn  bg-[#DFF4E0] py-[15px] text-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative "
+        >
+          <span>Назад</span>
+        </button> 
+      </div>
       <!-- Добавьте другие языки по необходимости -->
     </div>
   </template>
@@ -49,6 +51,12 @@ export default {
   position: absolute;
   bottom: 40px; 
   right: 60px;
+}
+@media screen and (max-width: 768px) {
+  .goBackBtn{
+    right: 20px;
+    bottom: 20px;
+  }
 }
 button:hover{
   border: 1px solid #2BB231;
