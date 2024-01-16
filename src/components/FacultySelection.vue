@@ -1,100 +1,38 @@
 <template>
-  <div
-    class="px-[20px]"
-  >
-    <div class="md:w-[500px] bg-white rounded-[10px] pb-[106px] relative md:px-[60px] md:pt-[50px] px-[16px] pt-[24px] md:pb-[122px] mx-auto">
+  <div class="px-[20px]">
+    <div
+      class="md:w-[500px] bg-white rounded-[10px] pb-[106px] relative md:px-[60px] md:pt-[50px] px-[16px] pt-[24px] md:pb-[122px] mx-auto"
+    >
       <h2 class="text-xl font-medium md:mb-[30px] mb-[15px]">
         Пожалуйста выберите свой <br />
         факультет:
       </h2>
       <button
-        @click="selectFaculty('Факультет борьбы')"
-        class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px]"
+        @click="selectFaculty(faculty.title)"
+        v-for="faculty in facultys"
+        :key="faculty.id"
+        class="w-full relative flex items-center juftify-between mb-[8px] px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px]"
       >
-        <span class="text-[#172F38] text-lg font-normal w-[259px]"
-          >Факультет борьбы</span
+        <span
+          v-if="isEllipsisActive"
+          @click="showFullText"
+          class="overflow-ellipsis text-[#172F38] text-lg font-normal w-[259px]"
+          >{{ faculty.title }}</span
         >
-      </button>
-      <button
-        @click="selectFaculty('Межфакультетские кафедры')"
-        class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]"
-      >
-        <span class="text-[#172F38] text-lg font-normal"
-          >Межфакультетские кафедры</span
-        >
-      </button>
-      <button
-        @click="selectFaculty('Факультет спортивного многоборья')"
-        class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]"
-      >
-        <span v-if="isEllipsisActive" @click="showFullText" class="overflow-ellipsis text-[#172F38] text-lg font-normal"
-          >Факультет спортивного многоборья</span
-        >
-        <span @click="toggleFullText" class="text-[#172F38]" v-else>Факультет спортивного многоборья</span>
-      </button>
-      <button
-        @click="selectFaculty('Факультет спортивного менеджмента и туризма')"
-        class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]"
-      >
-        <span v-if="isEllipsisActive" @click="showFullText" class="text-[#172F38] text-lg font-normal overflow-ellipsis"
-          >Факультет спортивного менеджмента и туризма</span
-        >
-        <span @click="toggleFullText" class="text-[#172F38]" v-else>Факультет спортивного менеджмента и туризма</span>
-      </button>
-      <button
-        @click="selectFaculty('Факультет футбола')"
-        class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]"
-      >
-        <span class="text-[#172F38] text-lg font-normal">Факультет футбола</span>
-      </button>
-      <button
-        @click="
-          selectFaculty('Факультет Паралимпийских игр и зимних видов спорта ')
-        "
-        class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]"
-      >
-        <span v-if="isEllipsisActive" @click="showFullText" class="text-[#172F38] text-lg font-normal overflow-ellipsis"
-          >Факультет Паралимпийских игр и зимних видов спорта
-        </span>
-        <span @click="toggleFullText" class="text-[#172F38]" v-else>Факультет Паралимпийских игр и зимних видов спорта</span>
-      </button>
-      <button
-        @click="
-          selectFaculty(
-            'Совместный Узбекско-Белорусский факультет физической культуры, спорта и туризма'
-          )
-        "
-        class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]"
-      >
-        <span v-if="isEllipsisActive" @click="showFullText" class="text-[#172F38] text-lg font-normal overflow-ellipsis"
-          >Совместный Узбекско-Белорусский факультет физической культуры, спорта и
-          туризма</span
-        >
-        <span @click="toggleFullText" class="text-[#172F38]" v-else>Совместный Узбекско-Белорусский факультет физической культуры, спорта и туризма</span>
-      </button>
-      <button
-        @click="selectFaculty('Медицинский факультет')"
-        class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]"
-      >
-        <span class="text-[#172F38] text-lg font-normal"
-          >Медицинский факультет</span
-        >
-      </button>
-      <button
-        @click="selectFaculty('Факультет единобордства')"
-        class="w-full relative flex items-center juftify-between px-[20px] py-[17px] hover:translate-x-1 transition border border-[#C3C3C3] rounded-[8px] mt-[8px]"
-      >
-        <span class="text-[#172F38] text-lg font-normal"
-          >Факультет единобордства</span
+        <span
+          @click="toggleFullText"
+          v-else
+          class="text-[#172F38] text-lg font-normal w-[259px]"
+          >{{ faculty.title }}</span
         >
       </button>
 
       <button
         @click="goBack(direction)"
-          class="goBackBtn  bg-[#DFF4E0] py-[15px] text-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative "
-        >
-          <span>Назад</span>
-      </button> 
+        class="goBackBtn hover:bg-[#DFF4E0] border-[#2bb231] border py-[15px] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative"
+      >
+        <span class="text-[#2bb231] span_btn">Назад</span>
+      </button>
     </div>
   </div>
 </template>
@@ -123,6 +61,21 @@ export default {
       maxCharacters: 50,
       isEllipsisActive: true,
       truncatedText: "",
+      facultys: [
+        { id: 1, title: "Факультет борьбы" },
+        { id: 2, title: "Межфакультетские кафедры" },
+        { id: 3, title: "Факультет спортивного многоборья" },
+        { id: 4, title: "Факультет спортивного менеджмента и туризма" },
+        { id: 5, title: "Факультет футбола" },
+        { id: 6, title: "Факультет Паралимпийских игр и зимних видов спорта " },
+        {
+          id: 7,
+          title:
+            "Совместный Узбекско-Белорусский факультет физической культуры, спорта и туризма",
+        },
+        { id: 8, title: "Медицинский факультет" },
+        { id: 9, title: "Факультет единобордства" },
+      ],
     };
   },
   watch: {
@@ -147,6 +100,9 @@ button:hover {
   border: 1px solid #2bb231;
   background-color: #dff4e0;
 }
+button .span_btn {
+  color: #2bb231;
+}
 button:hover span {
   color: #2bb231;
 }
@@ -160,13 +116,13 @@ button:hover span {
   background-image: url("../assets/left-arrow-2.svg");
   background-size: cover;
 }
-.goBackBtn{
+.goBackBtn {
   position: absolute;
-  bottom: 40px; 
+  bottom: 40px;
   right: 60px;
 }
 @media screen and (max-width: 768px) {
-  .goBackBtn{
+  .goBackBtn {
     right: 20px;
     bottom: 20px;
   }

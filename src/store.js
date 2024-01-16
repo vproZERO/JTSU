@@ -1,5 +1,5 @@
 // store.js
-import { createStore } from 'vuex';
+import { createStore } from "vuex";
 
 export default createStore({
   state: {
@@ -7,7 +7,7 @@ export default createStore({
     selectedFaculty: null,
     selectedCourse: null,
     selectedSemester: null,
-    selectedLanguage: null
+    selectedLanguage: null,
   },
   mutations: {
     setDirection(state, direction) {
@@ -27,14 +27,14 @@ export default createStore({
     },
   },
   getters: {
-    selectedData: state => {
+    selectedData: (state) => {
       return {
         selectedDirection: state.selectedDirection,
         selectedFaculty: state.selectedFaculty,
         selectedCourse: state.selectedCourse,
         selectedSemester: state.selectedSemester,
-        selectedLanguage: state.selectedLanguage
+        selectedLanguage: state.selectedLanguage,
       };
-    }
-  }
+    },
+  },
 });
