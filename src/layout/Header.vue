@@ -14,7 +14,7 @@
                         <input type="text" name="search" id="search" placeholder="Введите запрос" class="search-input bg-inherit w-full">
                     </div>
     
-                    <button class="pt-[15px] pb-[14px] px-[44px] rounded-[8px] bg-[#2BB231]">
+                    <button class="pt-[15px] disabled:bg-[#BDD5BE] hover:bg-[#7DDD81] pb-[14px] px-[44px] rounded-[8px] bg-[#2BB231]">
                         <span class="text-white text-base font-normal">Найти</span>
                     </button>
 

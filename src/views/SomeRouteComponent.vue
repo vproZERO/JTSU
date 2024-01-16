@@ -1,6 +1,6 @@
 <template>
-    <div class="md:px-36 px-[20px]">
-        <h2 class="text-2xl font-medium text-[#1C414F]">Предметы</h2>
+    <div class="lg:px-36 px-[20px]">
+        <h2 class="text-2xl font-medium text-[#1C414F] sm:mb-[20px] mb-[16px]">Предметы</h2>
         <div class="items_container grid md:grid-cols-3 grid-cols-2  gap-[20px]">
             <Items :items="items"/>
         </div>
