@@ -1,13 +1,38 @@
 <template>
-    <div class="px-36">
+    <div class="md:px-36 px-[20px]">
         <h2 class="text-2xl font-medium text-[#1C414F]">Предметы</h2>
+        <div class="items_container grid md:grid-cols-3 grid-cols-2  gap-[20px]">
+            <Items :items="items"/>
+        </div>
     </div>
 </template>
 <script>
+import Items from '../components/Items.vue'
+import axios from 'axios'
 export default {
-    
+    components: {
+        Items
+    },
+    data() {
+        return{
+            items: []
+        }
+    },
+    mounted() {
+        this.getItems()
+    },
+    methods: {
+        async getItems() {
+            try {
+                const res = await axios.get('https://3adaba7887399f0b.mokky.dev/items')
+                this.items = res.data
+            } catch (error) {
+                console.log('Error fetching data' , error);
+            }
+        }
+    },
 }
 </script>
-<style lang="">
-    
+<style scoped>
+ 
 </style>
