@@ -6,7 +6,7 @@
         Ваши направления по обучению
       </h2>
       <button
-        v-if="selectedData.selectedDirection"
+        v-if="selectedData"
         @click="goBack(direction)"
         class="goBackBtn xl:hidden block py-[15px] text-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative"
       >
@@ -97,12 +97,7 @@
       </div>
       <button
         v-if="
-          selectedData &&
-          !selectedData.selectedDirection &&
-          !selectedData.selectedFaculty &&
-          !selectedData.selectedCourse &&
-          !selectedData.selectedSemester &&
-          !selectedData.selectedLanguage
+          selectedData
         "
         @click="goBack(direction)"
         class="goBackBtn xl:block hidden bg-[#DFF4E0] py-[10px] text-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative"

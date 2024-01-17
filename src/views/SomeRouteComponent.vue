@@ -6,7 +6,7 @@
     <div
       class="items_container grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-[20px] sm:gap-y-[20px] gap-y-[15px]"
     >
-      <Items :items="items" />
+      <Items :items="items"/>
     </div>
   </div>
 </template>

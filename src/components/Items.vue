@@ -1,6 +1,7 @@
 <template>
   <div
     v-for="item in items"
+    @click="goToTopics(item)"
     :key="item.id"
     class="md:pt-[30px] md:pr-[20px] px-[16px] pt-[16px] pb-[84px] hover:-translate-y-2 transition cursor-pointer sm:pt-[30px] sm:px-[20px] sm:pb-[113px] sm:pl-[20px] lg:pl-[30px] bg-white rounded-[10px] relative"
   >
@@ -43,6 +44,12 @@ export default {
       default: () => [],
     },
   },
+  methods: {
+    goToTopics(item) {
+      this.$router.push({ name: "topics", params: item });
+      console.log(item);
+    }
+  }
   // methods: {
   //     isSpecial(itemId) {
   //         return [2, 6 , 7,  14 ,15].includes(itemId)
