@@ -2,7 +2,7 @@
 <template>
   <div class="lg:px-36 px-[20px] mb-[40px] xl:mt-[20px] mt-[24px] md:mt-[30px]">
     <div class="flex items-center justify-between">
-      <h2 class="text-lg font-bold text-[#1C414F] md:mb-[15px] mb-[12px]">
+      <h2 class="text-lg md:font-bold font-medium text-[#1C414F] md:mb-[15px] mb-[12px]">
         Ваши направления по обучению
       </h2>
       <button
@@ -97,7 +97,7 @@
       </div>
       <button
         v-if="
-          selectedData
+          selectedData.selectedDirection && selectedData.selectedFaculty && selectedData.selectedCourse && selectedData.selectedSemester && selectedData.selectedLanguage
         "
         @click="goBack(direction)"
         class="goBackBtn xl:block hidden bg-[#DFF4E0] py-[10px] text-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative"

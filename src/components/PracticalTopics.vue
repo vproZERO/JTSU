@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2 class="text-[#1C414F] mb-[20px] font-bold text-lg">Тематика практический занятии</h2>
-        <div class="bg-white rounded-[10px] mb-[8px] pt-[9px] flex items-center gap-[335px] pb-[8px] pr-[35px] pl-[179px]">
+        <div class="bg-white rounded-[10px] mb-[8px] hidden xl:flex pt-[9px] flex items-center justify-between pb-[8px] pr-[35px] pl-[179px]">
             <h2 class="opacity-[0.6] text-[#1C414F] font-normal text-base max-w-[171px]">Название</h2>
             <div class="flex items-center gap-[31px]">
                 <h2 class="opacity-[0.6] text-[#1C414F] font-normal text-base max-w-[180px]">Теоритические задание</h2>
@@ -10,37 +10,37 @@
                 <h2 class="opacity-[0.6] text-[#1C414F] font-normal text-base max-w-[171px]">Cамос. работа</h2>
             </div>
         </div>
-        <div v-for="lecture in lectures" :key="lecture.id" class="practical_box bg-white rounded-[10px] mb-[8px] pt-[9px] flex items-center gap-[48px] pb-[8px] pl-[20px] pr-[10px]">
-            <div class="flex items-center gap-[16px]">
-                <span class="text-[#1C414F] font-normal text-lg ">{{ lecture.id }}.</span>
-                <p class="max-w-[560px] text-[#1C414F] font-normal text-lg">{{ lecture.name }}</p>
+        <div v-for="lecture in lectures" :key="lecture.id" class="lecture_box hover:-translate-y-[5px] transition cursor-pointer relative bg-white rounded-[10px] mb-[8px] lg:pt-[11px] sm:pt-[15px] md:flex items-center lg:gap-[48px] md:gap-[18px] lg:pb-[11px] sm:pb-[7px] sm:pl-[13px] pt-[20px] pb-[28px] pl-[24px] pr-[42px] lg:pl-[20px] pr-[10px]">
+            <div class="flex items-center lg:gap-[16px] sm:gap-[9px] md:mb-[0] mb-[12px]">
+                <span class="text-[#1C414F] font-normal text-lg md:block hidden">{{ lecture.id }}.</span>
+                <p class="max-w-[560px] text-[#1C414F] font-normal text-lg "> <span class="inline-block md:hidden">{{ lecture.id }}.</span> {{ lecture.name }}</p>
             </div>
-            <div class="flex items-center gap-[110px]">
-                <div class="flex items-center gap-[8px]">
-                    <button class="hover:-translate-y-1 transition">
+
+            <div class="flex items-center xl:gap-[110px] gap-[30px]">
+                <div class="flex items-center lg:gap-[8px] gap-[4px]">
+                    <button class="sm:w-[24px] sm:h-[24px] w-[16px] h-[16px]">
                         <img :src="lecture.assignmentImg" :alt="lecture.name">
                     </button>
-                <p class="max-w-[560px] text-[#1C414F] font-normal text-lg">{{ lecture.assignment }}</p>
+                <p class="max-w-[560px] text-[#1C414F] font-normal sm:text-lg text-sm">{{ lecture.assignment }}</p>
                 </div>
-                <div class="flex items-center gap-[8px]">
-                    <button class="hover:-translate-y-1 transition">
+                <div class="flex items-center lg:gap-[8px] gap-[4px]">
+                    <button class="sm:w-[24px] sm:h-[24px] w-[16px] h-[16px]">
                         <img :src="lecture.presentationsImg" :alt="lecture.name">
                     </button>
-                <p class="max-w-[560px] text-[#1C414F] font-normal text-lg">{{ lecture.presentations }}</p>
+                    <p class="max-w-[560px] text-[#1C414F] font-normal sm:text-lg text-sm">{{ lecture.presentations }}</p>
                 </div>
-                <div class="flex items-center gap-[8px]">
-                    <button class="hover:-translate-y-1 transition">
+                <div class="flex items-center lg:gap-[8px] gap-[4px]">
+                    <button class="sm:w-[24px] sm:h-[24px] w-[16px] h-[16px]">
                         <img :src="lecture.videoImg" :alt="lecture.name">
                     </button>
-                <p class="max-w-[560px] text-[#1C414F] font-normal text-lg">{{ lecture.video }}</p>
+                <p class="max-w-[560px] text-[#1C414F] font-normal sm:text-lg text-sm">{{ lecture.video }}</p>
                 </div>
-                <div class="flex items-center gap-[8px]">
-                    <button class="hover:-translate-y-1 transition">
+                <div class="flex items-center lg:gap-[8px] gap-[4px]">
+                    <button class="sm:w-[24px] sm:h-[24px] w-[16px] h-[16px]">
                         <img :src="lecture.workImg" :alt="lecture.name">
                     </button>
-                <p class="max-w-[560px] text-[#1C414F] font-normal text-lg">{{ lecture.work }}</p>
+                <p class="max-w-[560px] text-[#1C414F] font-normal sm:text-lg text-sm">{{ lecture.work }}</p>
                 </div>
-
             </div>
         </div>
     </div>
@@ -66,14 +66,56 @@ export default {
 }
 </script>
 <style scoped>
-    .practical_box::after{
-        content: '';
-        width: 24px;
-        height: 24px;
-        right: 10px;
-        top: 24px;
-        position: absolute;
-        background-image: url('../assets/coma.svg');
-        background-size: cover;
+    table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background-color: white;
+  margin-bottom: 8px;
+}
+tbody {
+  background-color: white;
+  margin-bottom: 8px;
+}
+th {
+    padding-top: 9px;
+    padding-bottom: 8px;
+    text-align: center;
+    max-width: 171px;
+}
+.th_name{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 179px;
+}
+.th_work{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+td {
+    max-width: 560px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 49px;
+}
+.lecture_box::after{
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: auto;
+    right: 10px;
+    background-size: cover;
+    background-image: url('../assets/coma.svg');
+}
+@media screen and (max-width: 768px) {
+    .lecture_box::after{
+        top: 20px;
+        right: 16px;
     }
+}
 </style>

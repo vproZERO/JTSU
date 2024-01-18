@@ -1,9 +1,9 @@
 <template>
-    <div class="bg-white rounded-[10px] px-[40px] pb-[40px] pt-[30px]">
-        <h2 class="text-[#1C414F] font-bold text-lg lg:mb-[20px]">Приклепленные файлы</h2>
-        <div class="flex items-center gap-x-[80px] flex-wrap">
-            <div v-for="file in files" :key="file.id" class="flex items-center gap-[5px]  mb-[20px]">
-                <button>
+    <div class="bg-white rounded-[10px] md:px-[40px] px-[16px]  pb-[40px] pt-[20px] md:pt-[30px]">
+        <h2 class="text-[#1C414F] font-bold text-lg lg:mb-[20px] mb-[16px]">Приклепленные файлы</h2>
+        <div class="flex items-center sm:gap-x-[60px] flex-wrap">
+            <div v-for="file in files" :key="file.id" class="flex items-center gap-[5px] md:mb-[20px] mb-[15px]">
+                <button class="w-[36px] h-[36px]">
                     <img :src="file.img" alt="img">
                 </button>
                 <div>

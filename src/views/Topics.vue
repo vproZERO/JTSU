@@ -1,20 +1,28 @@
 <template>
     <div class="lg:px-36 px-[20px]">
-        <h2 class="lg:mb-[20px] text-[#1C414F] font-medium text-2xl" >Предмет: Теория и методика физической реабилитации</h2>
-        <StickyFiles class="mb-[40px]"/>
-        <LectureTopics class="mb-[40px]"/>
+        <Breadcrumb class="mb-[20px] md:block hidden"/>
+        <h2 class="mb-[20px] text-[#1C414F] font-medium text-2xl" >Предмет: Теория и методика физической реабилитации</h2>
+        <StickyFiles @click="goToList" class="md:mb-[40px] sm:mb-[30px] mb-[24px]"/>
+        <LectureTopics @click="goToList" class="mb-[40px]"/>
         <PracticalTopic/>
     </div>
 </template>
 <script>
+import Breadcrumb from '../components/Breadcrumb.vue'
 import StickyFiles from '../components/StickyFiles.vue'
 import LectureTopics from '../components/LectureTopics.vue'
 import PracticalTopic from '../components/PracticalTopics.vue'
 export default {
     components: {
+        Breadcrumb,
         StickyFiles,
         LectureTopics,
         PracticalTopic,
+    },
+    methods: {
+        goToList() {
+            this.$router.push('/list')
+        }
     }
 }
 </script>

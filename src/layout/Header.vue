@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:px-36 px-[20px] py-[28px] bg-white">
+  <div class="lg:px-36 px-[20px] py-[28px] bg-white relative">
     <div class="flex items-center justify-between gap-[30px]">
       <div class="lg:w-[216px] w-[188px]">
         <img src="../assets/logo.svg" alt="logo" />
@@ -8,8 +8,8 @@
       <form
         class="md:bg-[#F0F3F5] md:hover:bg-[#E0E7EB] md:flex justify-between items-center active:bg-[#F0F3F5] active:border-[#1C414F] md:rounded-[8px] lg:py-[6px] md:py-[18px] md:pl-[18px] lg:pr-[6px] lg:pl-[17px] bg-white md:w-[90%] p-0"
       >
-        <div class="md:flex hidden items-center gap-[15px]">
-          <div class="w-[24px] h-[24px]">
+        <div @click="toggleSearchForm" class="md:flex hidden items-center gap-[15px]">
+          <div class="w-[26px] h-[24px]">
             <img src="../assets/search.svg" alt="search " />
           </div>
           <input
@@ -17,7 +17,8 @@
             name="search"
             id="search"
             placeholder="Введите запрос"
-            class="block bg-inherit w-full mr-[10px]"
+            class="block bg-inherit w-full hover:bg-[#E0E7EB] bg-[#F0F3F5] focus:w-[100%] focus:text-[#1C414F] text-[#1C414F] block mr-[10px]"
+            required
           />
         </div>
         <button
@@ -25,21 +26,30 @@
         >
           <span class="text-white text-base font-normal">Найти</span>
         </button>
+      </form>
+      <div class="flex items-center gap-[24px]">
 
-        <button class="h-[24px] md:hidden block">
+        <button @click="toggleSearchForm" class="search-icon h-[24px] md:hidden block hover:-translate-y-1 transition">
           <div class="w-[24px] h-[24px]">
             <img src="../assets/search.svg" alt="search" />
           </div>
         </button>
-      </form>
-      <button
-        class="flex items-center md:gap-[8px] gap-[2.5px] md:py-[20px] md:px-[20px] md:bg-[#F0F3F5] rounded-[8px]"
-      >
-        <div class="w-[24px] h-[24px]">
-          <img src="../assets/earth-icon.svg" alt="earth icon" />
-        </div>
-        <span class="text-[#1C414F] text-base font-medium">Русский</span>
-      </button>
+        <form v-if="isSearchFormVisible" @submit.prevent="performSearch" class="search-form  flex items-center justify-between">
+          <button @click="closeIsSearchForm" class="-rotate-180 hover:-translate-x-1 transition">
+            <img src="../assets/right-arrow.svg" alt="arrow">
+          </button>
+          <input v-model="searchQuery" type="text" name="search" placeholder="Поиск..." class="search-input">
+        </form>
+
+        <button
+          class="flex items-center md:gap-[8px] gap-[2.5px] md:py-[20px] md:px-[20px] md:bg-[#F0F3F5] rounded-[8px]"
+        >
+          <div class="w-[24px] h-[24px]">
+            <img src="../assets/earth-icon.svg" alt="earth icon" />
+          </div>
+          <span class="text-[#1C414F] text-base font-medium">Русский</span>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -52,7 +62,8 @@ export default {
       maxCharacters: 50,
       isEllipsisActive: true,
       truncatedText: "",
-      isSearchOpen: false,
+      isSearchFormVisible: false,
+      searchQuery: ''
     };
   },
   watch: {
@@ -77,8 +88,62 @@ export default {
     toggleFullText() {
       this.isEllipsisActive = !this.isEllipsisActive;
     },
+    toggleSearchForm() {
+      this.isSearchFormVisible = !this.isSearchFormVisible;
+      if (this.isSearchFormVisible && this.$refs.searchInput) {
+        this.$nextTick(() => {
+          this.$refs.searchInput.focus();
+        });
+      }
+    },
+    closeIsSearchForm() {
+      this.isSearchFormVisible = false;
+    },
+    performSearch() {
+      console.log('Perform search with query:', this.searchQuery);
+    }
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+  .search-form{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  
+  .search-input{
+    width: 90%;
+    padding-top: 15px;
+    padding-bottom: 16px;
+    padding-left: 15px;
+    padding-right: 188px;
+    background-color: #F0F3F5;
+    border-radius: 8px;
+    color: #1C414F;
+  }
+  @media screen and (min-width: 768px) {
+      .search-form{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: white;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    .search-input{
+      width: 95%;
+    }
+    
+  }
+</style>
