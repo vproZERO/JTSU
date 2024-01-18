@@ -2,9 +2,9 @@
     <div class="lg:px-36 px-[20px]">
         <Breadcrumb class="mb-[20px] md:block hidden"/>
         <h2 class="mb-[20px] text-[#1C414F] font-medium text-2xl" >Предмет: Теория и методика физической реабилитации</h2>
-        <StickyFiles @click="goToList" class="md:mb-[40px] sm:mb-[30px] mb-[24px]"/>
+        <StickyFiles class="md:mb-[40px] sm:mb-[30px] mb-[24px]"/>
         <LectureTopics @click="goToList" class="mb-[40px]"/>
-        <PracticalTopic/>
+        <PracticalTopic  @click="goToList" />
     </div>
 </template>
 <script>

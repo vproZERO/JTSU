@@ -8,7 +8,10 @@
       <form
         class="md:bg-[#F0F3F5] md:hover:bg-[#E0E7EB] md:flex justify-between items-center active:bg-[#F0F3F5] active:border-[#1C414F] md:rounded-[8px] lg:py-[6px] md:py-[18px] md:pl-[18px] lg:pr-[6px] lg:pl-[17px] bg-white md:w-[90%] p-0"
       >
-        <div @click="toggleSearchForm" class="md:flex hidden items-center gap-[15px]">
+        <div
+          @click="toggleSearchForm"
+          class="md:flex hidden items-center gap-[15px]"
+        >
           <div class="w-[26px] h-[24px]">
             <img src="../assets/search.svg" alt="search " />
           </div>
@@ -28,17 +31,32 @@
         </button>
       </form>
       <div class="flex items-center gap-[24px]">
-
-        <button @click="toggleSearchForm" class="search-icon h-[24px] md:hidden block hover:-translate-y-1 transition">
+        <button
+          @click="toggleSearchForm"
+          class="search-icon h-[24px] md:hidden block hover:-translate-y-1 transition"
+        >
           <div class="w-[24px] h-[24px]">
             <img src="../assets/search.svg" alt="search" />
           </div>
         </button>
-        <form v-if="isSearchFormVisible" @submit.prevent="performSearch" class="search-form  flex items-center justify-between">
-          <button @click="closeIsSearchForm" class="-rotate-180 hover:-translate-x-1 transition">
-            <img src="../assets/right-arrow.svg" alt="arrow">
+        <form
+          v-if="isSearchFormVisible"
+          @submit.prevent="performSearch"
+          class="search-form flex items-center justify-between"
+        >
+          <button
+            @click="closeIsSearchForm"
+            class="-rotate-180 hover:-translate-x-1 transition"
+          >
+            <img src="../assets/right-arrow.svg" alt="arrow" />
           </button>
-          <input v-model="searchQuery" type="text" name="search" placeholder="Поиск..." class="search-input">
+          <input
+            v-model="searchQuery"
+            type="text"
+            name="search"
+            placeholder="Поиск..."
+            class="search-input"
+          />
         </form>
 
         <button
@@ -63,7 +81,7 @@ export default {
       isEllipsisActive: true,
       truncatedText: "",
       isSearchFormVisible: false,
-      searchQuery: ''
+      searchQuery: "",
     };
   },
   watch: {
@@ -100,50 +118,49 @@ export default {
       this.isSearchFormVisible = false;
     },
     performSearch() {
-      console.log('Perform search with query:', this.searchQuery);
-    }
+      console.log("Perform search with query:", this.searchQuery);
+    },
   },
 };
 </script>
 
 <style scoped>
-  .search-form{
+.search-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.search-input {
+  width: 90%;
+  padding-top: 15px;
+  padding-bottom: 16px;
+  padding-left: 15px;
+  padding-right: 188px;
+  background-color: #f0f3f5;
+  border-radius: 8px;
+  color: #1c414f;
+}
+@media screen and (min-width: 768px) {
+  .search-form {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     background-color: white;
-    padding-top: 20px;
-    padding-bottom: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     padding-right: 20px;
     padding-left: 20px;
   }
-  
-  .search-input{
-    width: 90%;
-    padding-top: 15px;
-    padding-bottom: 16px;
-    padding-left: 15px;
-    padding-right: 188px;
-    background-color: #F0F3F5;
-    border-radius: 8px;
-    color: #1C414F;
+  .search-input {
+    width: 95%;
   }
-  @media screen and (min-width: 768px) {
-      .search-form{
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: white;
-      padding-top: 30px;
-      padding-bottom: 30px;
-      padding-right: 20px;
-      padding-left: 20px;
-    }
-    .search-input{
-      width: 95%;
-    }
-    
-  }
+}
 </style>
