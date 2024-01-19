@@ -12,7 +12,7 @@
         </div>
 
 
-        <div v-for="lecture in lectures" :key="lecture.id" class="lecture_box hover:-translate-y-[5px] transition cursor-pointer relative bg-white rounded-[10px] mb-[8px] lg:pt-[11px] md:pt-[15px] md:flex items-center lg:gap-[48px] sm:gap-[18px] lg:pb-[11px] sm:pb-[7px] sm:pl-[13px] pt-[20px] pb-[28px] pl-[24px] pr-[42px] lg:pl-[20px] pr-[10px]">
+        <div v-for="lecture in lectures" :key="lecture.id" class="lecture_box  cursor-pointer relative bg-white rounded-[10px] mb-[8px] lg:pt-[11px] md:pt-[15px] md:flex items-center lg:gap-[48px] sm:gap-[18px] lg:pb-[11px] sm:pb-[7px] sm:pl-[13px] pt-[20px] pb-[28px] pl-[24px] pr-[42px] lg:pl-[20px] pr-[10px]">
             <div class="flex items-center lg:gap-[16px] sm:gap-[9px] md:mb-[0] mb-[12px]">
                 <span class="text-[#1C414F] font-normal text-lg md:block hidden">{{ lecture.id }}.</span>
                 <p class="max-w-[560px] text-[#1C414F] font-normal text-lg "> <span class="inline-block md:hidden">{{ lecture.id }}.</span> {{ lecture.name }}</p>

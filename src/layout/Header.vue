@@ -1,9 +1,9 @@
 <template>
   <div class="lg:px-36 px-[20px] py-[28px] bg-white relative">
     <div class="flex items-center justify-between gap-[30px]">
-      <div class="lg:w-[216px] w-[188px]">
+      <router-link to="/" class="lg:w-[216px] w-[188px]">
         <img src="../assets/logo.svg" alt="logo" />
-      </div>
+      </router-link>
 
       <form
         class="md:bg-[#F0F3F5] md:hover:bg-[#E0E7EB] md:flex justify-between items-center active:bg-[#F0F3F5] active:border-[#1C414F] md:rounded-[8px] lg:py-[6px] md:py-[18px] md:pl-[18px] lg:pr-[6px] lg:pl-[17px] bg-white md:w-[90%] p-0"
@@ -27,7 +27,9 @@
         <button
           class="pt-[15px] disabled:bg-[#BDD5BE] lg:block hidden hover:bg-[#7DDD81] pb-[14px] px-[44px] rounded-[8px] bg-[#2BB231]"
         >
-          <span class="text-white text-base font-normal">Найти</span>
+          <span class="text-white text-base font-normal">
+            {{ $t('Найти') }}
+          </span>
         </button>
       </form>
       <div class="flex items-center gap-[24px]">
@@ -59,20 +61,14 @@
           />
         </form>
 
-        <button
-          class="flex items-center md:gap-[8px] gap-[2.5px] md:py-[20px] md:px-[20px] md:bg-[#F0F3F5] rounded-[8px]"
-        >
-          <div class="w-[24px] h-[24px]">
-            <img src="../assets/earth-icon.svg" alt="earth icon" />
-          </div>
-          <span class="text-[#1C414F] text-base font-medium">Русский</span>
-        </button>
+        <SwitchLan/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import SwitchLan from '../components/SwitchLan.vue'
 export default {
   data() {
     return {
@@ -121,6 +117,9 @@ export default {
       console.log("Perform search with query:", this.searchQuery);
     },
   },
+  components: {
+    SwitchLan
+  }
 };
 </script>
 

@@ -3,14 +3,16 @@
   <div class="lg:px-36 px-[20px] mb-[40px] xl:mt-[20px] mt-[24px] md:mt-[30px]">
     <div class="flex items-center justify-between">
       <h2 class="text-lg md:font-bold font-medium text-[#1C414F] md:mb-[15px] mb-[12px]">
-        Ваши направления по обучению
+        {{ $t('Ваши направления по обучению') }}
       </h2>
       <button
         v-if="selectedData"
         @click="goBack(direction)"
         class="goBackBtn xl:hidden block py-[15px] text-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative"
       >
-        <span>Изменить</span>
+        <span>
+          {{ $t('Изменить') }}
+        </span>
       </button>
     </div>
     <div
@@ -21,7 +23,9 @@
           v-if="!selectedData.selectedDirection"
           class="py-[7px] bg-white rounded-[6px] border border-[#D2D2D2] px-[22px]"
         >
-          <p class="text-[#D2D2D2] text-sm">Направление</p>
+          <p class="text-[#D2D2D2] text-sm">
+            {{ $t('Направление') }}
+          </p>
         </div>
         <div
           v-else
@@ -35,7 +39,9 @@
           v-if="!selectedData.selectedFaculty"
           class="py-[7px] rounded-[6px] border border-[#D2D2D2] px-[22px]"
         >
-          <p class="text-[#D2D2D2] text-sm">Факультет</p>
+          <p class="text-[#D2D2D2] text-sm">
+            {{ $t('Факультет') }}
+          </p>
         </div>
         <div
           v-else
@@ -56,7 +62,9 @@
           v-if="!selectedData.selectedCourse"
           class="py-[7px] rounded-[6px] border border-[#D2D2D2] px-[22px]"
         >
-          <p class="text-[#D2D2D2] text-sm">Курс</p>
+          <p class="text-[#D2D2D2] text-sm">
+            {{ $t('Курс') }}
+          </p>
         </div>
         <div
           v-else
@@ -70,7 +78,9 @@
           v-if="!selectedData.selectedSemester"
           class="py-[7px] rounded-[6px] border border-[#D2D2D2] px-[22px]"
         >
-          <p class="text-[#D2D2D2] text-sm">Семестр</p>
+          <p class="text-[#D2D2D2] text-sm">
+            {{ $t('Семестр') }}
+          </p>
         </div>
         <div
           v-else
@@ -84,7 +94,9 @@
           v-if="!selectedData.selectedLanguage"
           class="py-[7px] rounded-[6px] border border-[#D2D2D2] px-[22px]"
         >
-          <p class="text-[#D2D2D2] text-sm">Язык обучения</p>
+          <p class="text-[#D2D2D2] text-sm">
+            {{ $t('Язык обучения') }}
+          </p>
         </div>
         <div
           v-else
@@ -102,7 +114,7 @@
         @click="goBack(direction)"
         class="goBackBtn xl:block hidden bg-[#DFF4E0] py-[10px] text-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative"
       >
-        <span>Изменить</span>
+        <span> {{ $t('Изменить') }}</span>
       </button>
     </div>
   </div>
