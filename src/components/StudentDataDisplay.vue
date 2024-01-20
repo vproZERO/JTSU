@@ -12,7 +12,7 @@
         savedUserFaculty &&
         savedUserLanguage
       "
-      class="pt-[20px] pl-[20px] pb-[36px] rounded-[6px] bg-white"
+      class="md:pt-[20px] md:pl-[20px] md:pr-[20px] px-[16px] pt-[16px] md:pb-[36px] pb-[24px] rounded-[6px] bg-white"
     >
       <p
         class="max-w-[392px] mb-[15px] text-sm font-normal text-[#1C414F] opacity-[0.7]"
