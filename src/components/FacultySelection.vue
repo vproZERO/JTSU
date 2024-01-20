@@ -4,7 +4,7 @@
       class="md:w-[500px] bg-white rounded-[10px] pb-[106px] relative md:px-[60px] md:pt-[50px] px-[16px] pt-[24px] md:pb-[122px] mx-auto"
     >
       <h2 class="text-xl font-medium md:mb-[30px] mb-[15px]">
-        {{ $t('Пожалуйста выберите свой факультет:') }}
+        {{ $t("Пожалуйста выберите свой факультет:") }}
       </h2>
       <button
         @click="selectFaculty(faculty.title)"
@@ -31,7 +31,7 @@
         class="goBackBtn hover:bg-[#DFF4E0] border-[#2bb231] border py-[15px] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative"
       >
         <span class="text-[#2bb231] span_btn">
-          {{ $t('Назад') }}
+          {{ $t("Назад") }}
         </span>
       </button>
     </div>

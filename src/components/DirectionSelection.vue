@@ -4,7 +4,7 @@
       class="md:w-[500px] bg-white rounded-[10px] h-[500px] md:px-[60px] md:pt-[50px] px-[16px] pt-[24px] pb-[40px] mx-auto"
     >
       <h2 class="text-xl font-medium mb-[30px]">
-        {{ $t('Пожалуйста выберите свое направление') }}
+        {{ $t("Пожалуйста выберите свое направление") }}
       </h2>
       <button
         v-for="direction in directions"
@@ -31,7 +31,7 @@ export default {
   computed: {
     savedDirection() {
       return localStorage.getItem("direction");
-    }
+    },
   },
   data() {
     return {

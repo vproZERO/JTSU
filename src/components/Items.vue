@@ -1,10 +1,9 @@
 <template>
-  
   <div
     v-for="item in items"
     @click="goToTopics(item)"
     :key="item.id"
-    class="md:pt-[30px] md:pr-[30px] px-[16px] pt-[16px] pb-[84px] hover:-translate-y-2 transition cursor-pointer sm:pt-[30px] sm:px-[20px] sm:pb-[113px] sm:pl-[20px] md:pl-[30px] bg-white rounded-[10px] "
+    class="md:pt-[30px] md:pr-[30px] px-[16px] pt-[16px] pb-[84px] hover:-translate-y-2 transition cursor-pointer sm:pt-[30px] sm:px-[20px] sm:pb-[113px] sm:pl-[20px] md:pl-[30px] bg-white rounded-[10px]"
   >
     <div>
       <h2
@@ -12,9 +11,9 @@
       >
         {{ item.title }}
       </h2>
-      
+
       <div
-        class=" sm:w-[80px] lg:w-[140px] lg:h-[140px] mx-auto w-[60px] h-[60px] sm:h-[80px]"
+        class="sm:w-[80px] lg:w-[140px] lg:h-[140px] mx-auto w-[60px] h-[60px] sm:h-[80px]"
       >
         <img :src="item.imageUrl" :alt="item.title" />
       </div>
@@ -25,12 +24,11 @@
 import axios from "axios";
 
 export default {
-
   methods: {
     goToTopics(item) {
       this.$router.push({ name: "topics", params: item });
       console.log(item);
-    }
+    },
   },
   data() {
     return {

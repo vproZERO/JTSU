@@ -8,7 +8,7 @@
       Теоретическая часть
     </h2>
     <p
-      class="sm:max-w-[648px] lg:w-[707px] text-[#1C414F] font-normal text-lg  lg:mb-[30px] sm:mb-[11px] mb-[14px]"
+      class="sm:max-w-[648px] lg:w-[707px] text-[#1C414F] font-normal text-lg lg:mb-[30px] sm:mb-[11px] mb-[14px]"
     >
       Физическая активность и забота о своём теле играют важную роль
       в современной жизни. Физкультура не просто является элементом заботы
@@ -32,7 +32,9 @@
       <img src="../assets/image.png" alt="img" />
     </div>
 
-    <div class="block lg:hidden flex items-end sm:gap-[15px] gap-[24px] mb-[16px] sm:mb-[20px]">
+    <div
+      class="block lg:hidden flex items-end sm:gap-[15px] gap-[24px] mb-[16px] sm:mb-[20px]"
+    >
       <h2 class="italic text-[#000000] font-semibold text-base sm:text-lg">
         Rio-2020
       </h2>
@@ -58,8 +60,8 @@
       <img src="../assets/image.png" alt="img" />
     </div>
     <h2 class="italic text-[#000000] font-semibold text-base sm:text-lg">
-        Rio-2020 Бег на 2 км
-      </h2>
+      Rio-2020 Бег на 2 км
+    </h2>
   </div>
 </template>
 <script>

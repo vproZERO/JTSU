@@ -8,12 +8,18 @@
       <div class="mb-[30px] lg:mb-0">
         <h2 class="text-3xl font-bold text-[#1C414F]">OʻzDJTSU</h2>
         <p class="text-sm font-normal max-w-[321px] mt-[6px] text-[#1C414F]">
-          {{ $t('Следите за новостями на нашем сайте, и тогда вы сможете приобрести знания и навыки, которые пригодятся в будущем') }}
+          {{
+            $t(
+              "Следите за новостями на нашем сайте, и тогда вы сможете приобрести знания и навыки, которые пригодятся в будущем"
+            )
+          }}
         </p>
       </div>
       <div class="flex items-center">
         <div>
-          <h2 class="text-xl font-medium text-[#1C414F]">{{ $t('Наши контакты') }}</h2>
+          <h2 class="text-xl font-medium text-[#1C414F]">
+            {{ $t("Наши контакты") }}
+          </h2>
           <div class="flex items-center mt-[19px] gap-[10px]">
             <div class="w-[16px] h-[16px]">
               <img src="../assets/location.svg" alt="location" />
@@ -21,7 +27,7 @@
             <p
               class="md:text-sm text-xs font-normal max-w-[350px] text-[#1C414F]"
             >
-              {{ $t('Ташкентская область, г Чирчик, ул Спортивная, 19') }}
+              {{ $t("Ташкентская область, г Чирчик, ул Спортивная, 19") }}
             </p>
           </div>
           <div class="flex items-center mt-[12px] gap-[10px]">
@@ -52,10 +58,10 @@
         © 2023 ООО. All rights reserved
       </li>
       <li class="text-[#1C414F] text-xs font-normal opacity-[0.6]">
-        {{ $t('Политика безопасности') }}
+        {{ $t("Политика безопасности") }}
       </li>
       <li class="text-[#1C414F] text-xs font-normal opacity-[0.6]">
-        {{ $t('Условия соглашения') }}
+        {{ $t("Условия соглашения") }}
       </li>
     </ul>
   </div>

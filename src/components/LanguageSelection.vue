@@ -5,7 +5,7 @@
       class="md:w-[500px] px-[16px] pt-[24px] pb-[106px] bg-white rounded-[10px] md:px-[60px] md:pt-[50px] md:pb-[122px] mx-auto relative"
     >
       <h2 class="text-xl font-medium md:mb-[30px] mb-[15px]">
-        {{ $t('Пожалуйста, выберите язык  обучения!') }}
+        {{ $t("Пожалуйста, выберите язык  обучения!") }}
       </h2>
       <button
         @click="selectLanguage('Узбекский язык')"
@@ -29,7 +29,7 @@
         @click="goBack(semester)"
         class="goBackBtn hover:bg-[#DFF4E0] py-[15px] border border-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative"
       >
-        <span class="span_btn">{{ $t('Назад') }}</span>
+        <span class="span_btn">{{ $t("Назад") }}</span>
       </button>
     </div>
     <!-- Добавьте другие языки по необходимости -->

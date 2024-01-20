@@ -1,17 +1,16 @@
 <template>
   <div>
     <!-- Breadcrumb -->
-    <nav
-      class="flex px-5 py-3 text-gray-700   "
-      aria-label="Breadcrumb"
-    >
+    <nav class="flex px-5 py-3 text-gray-700" aria-label="Breadcrumb">
       <ol
         class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse"
       >
-        <li class="inline-flex items-center border-r-2 pr-[7px] border-gray-400">
+        <li
+          class="inline-flex items-center border-r-2 pr-[7px] border-gray-400"
+        >
           <router-link
             to="/someRoute"
-            class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-[#1C414F] "
+            class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-[#1C414F]"
           >
             <svg
               class="w-3 h-3 me-2.5"
@@ -28,15 +27,13 @@
           </router-link>
         </li>
         <li>
-            <router-link
+          <router-link
             to="/topics"
             class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-[#1C414F]"
           >
-            
             Теория и методика физической реабилитации
           </router-link>
         </li>
-        
       </ol>
     </nav>
   </div>

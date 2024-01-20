@@ -1,9 +1,7 @@
 // StudentDataDisplay.vue
 <template>
   <div class="mb-[40px] xl:mt-[20px] mt-[24px] md:mt-[30px]">
-    <div class="flex items-center justify-between">
-      
-    </div>
+    <div class="flex items-center justify-between"></div>
     <div
       v-if="
         savedUserData &&
@@ -17,7 +15,11 @@
       <p
         class="max-w-[392px] mb-[15px] text-sm font-normal text-[#1C414F] opacity-[0.7]"
       >
-        {{ $t('Возможно, в вашем вопросе есть опечатки или непонятные. Если вы хотите задать вопрос или предоставить.') }}
+        {{
+          $t(
+            "Возможно, в вашем вопросе есть опечатки или непонятные. Если вы хотите задать вопрос или предоставить."
+          )
+        }}
       </p>
       <div class="flex items-center flex-wrap gap-[4px]">
         <button
@@ -29,32 +31,50 @@
             savedUserLanguage
           "
           @click="goBack(direction)"
-          class="goBackBtn  bg-[#2BB231] rounded-full p-[12px] transition hover:-translate-y-1"
+          class="goBackBtn bg-[#2BB231] rounded-full p-[12px] transition hover:-translate-y-1"
         >
           <div class="w-[16px] h-[16px] mx-auto">
             <img src="../assets/update.svg" alt="update icon" />
           </div>
         </button>
-        <div class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]">
-              <span class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"></span>
-              <p class="text-[#2BB231] text-sm font-normal">{{ savedUserData }}</p>
-            </div>
-            <div class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]">
-              <span class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"></span>
-              <p class="text-[#2BB231] text-sm font-normal">{{ savedUserFaculty }}</p>
-            </div>
-            <div class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]">
-              <span class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"></span>
-              <p class="text-[#2BB231] text-sm font-normal">{{ savedUserCourse }}</p>
-            </div>
-            <div class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]">
-              <span class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"></span>
-              <p class="text-[#2BB231] text-sm font-normal">{{ savedUserSemester }}</p>
-            </div>
-            <div class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]">
-              <span class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"></span>
-              <p class="text-[#2BB231] text-sm font-normal">{{ savedUserLanguage }}</p>
-            </div>
+        <div
+          class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]"
+        >
+          <span class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"></span>
+          <p class="text-[#2BB231] text-sm font-normal">{{ savedUserData }}</p>
+        </div>
+        <div
+          class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]"
+        >
+          <span class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"></span>
+          <p class="text-[#2BB231] text-sm font-normal">
+            {{ savedUserFaculty }}
+          </p>
+        </div>
+        <div
+          class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]"
+        >
+          <span class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"></span>
+          <p class="text-[#2BB231] text-sm font-normal">
+            {{ savedUserCourse }}
+          </p>
+        </div>
+        <div
+          class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]"
+        >
+          <span class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"></span>
+          <p class="text-[#2BB231] text-sm font-normal">
+            {{ savedUserSemester }}
+          </p>
+        </div>
+        <div
+          class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]"
+        >
+          <span class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"></span>
+          <p class="text-[#2BB231] text-sm font-normal">
+            {{ savedUserLanguage }}
+          </p>
+        </div>
       </div>
     </div>
 
