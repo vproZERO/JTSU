@@ -2,15 +2,7 @@
 <template>
   <div class="mb-[40px] xl:mt-[20px] mt-[24px] md:mt-[30px]">
     <div class="flex items-center justify-between">
-      <button
-        v-if="selectedData"
-        @click="goBack(direction)"
-        class="goBackBtn xl:hidden block py-[15px] text-[#2BB231] hover:-translate-x-1 transition pr-[27px] pl-[46px] text-base font-normal rounded-[6px] relative"
-      >
-        <span>
-          {{ $t("Изменить") }}
-        </span>
-      </button>
+      
     </div>
     <div
       v-if="
@@ -27,7 +19,7 @@
       >
         {{ $t('Возможно, в вашем вопросе есть опечатки или непонятные. Если вы хотите задать вопрос или предоставить.') }}
       </p>
-      <div class="flex items-center">
+      <div class="flex items-center flex-wrap">
         <button
           v-if="
             savedUserData &&
@@ -37,7 +29,7 @@
             savedUserLanguage
           "
           @click="goBack(direction)"
-          class="goBackBtn xl:block hidden bg-[#2BB231] rounded-full p-[12px] transition hover:-translate-y-1"
+          class="goBackBtn  bg-[#2BB231] rounded-full p-[12px] transition hover:-translate-y-1"
         >
           <div class="w-[16px] h-[16px] mx-auto">
             <img src="../assets/update.svg" alt="update icon" />
@@ -68,7 +60,7 @@
 
     <div
       v-else
-      class="bg-white flex items-center justify-between xl:p-[4px] md:py-[10px] mx-20 md:px-[20px] p-[16px] rounded-[8px] relative"
+      class="bg-white flex items-center justify-between xl:p-[4px] md:py-[10px] md:px-[20px] p-[16px] rounded-[8px] relative"
     >
       <div class="lg:flex items-center gap-[4px] flex flex-wrap">
         <div

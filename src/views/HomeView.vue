@@ -1,5 +1,5 @@
 <template>
-  <div class="px-20">
+  <div class="lg:px-20 px-[20px]">
     <StudentDataDisplay />
     <DirectionSelection v-if="!selectedDirection" />
     <FacultySelection v-else-if="!selectedFaculty" />
