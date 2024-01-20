@@ -1,5 +1,6 @@
 <template>
-  <div class="lg:px-36 px-[20px]">
+  <div class="lg:px-20 px-[20px]">
+    <StudentDataDisplay/>
     <h2 class="text-2xl font-medium text-[#1C414F] sm:mb-[20px] mb-[16px]">
       {{ $t('Предметы') }}
     </h2>
@@ -13,10 +14,12 @@
 <script>
 import Items from "../components/Items.vue";
 import axios from "axios";
+import StudentDataDisplay from "../components/StudentDataDisplay.vue";
 export default {
   components: {
     Items,
-  },
+    StudentDataDisplay
+},
   data() {
     return {
       items: [],

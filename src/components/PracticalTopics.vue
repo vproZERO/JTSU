@@ -46,10 +46,10 @@
     </div>
 </template>
 <script>
-import assignmentImg from '../assets/assignment.svg'
+import assignmentImg from '../assets/doc.svg'
 import presentationsImg from '../assets/presentations.svg'
-import videoImg from '../assets/video.svg'
-import workImg from '../assets/work.svg'
+import videoImg from '../assets/mp4.svg'
+import workImg from '../assets/file.svg'
 export default {
     data() {
         return {
@@ -102,20 +102,5 @@ td {
     padding-bottom: 11px;
     padding-left: 49px;
 }
-.lecture_box::after{
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    top: auto;
-    right: 10px;
-    background-size: cover;
-    background-image: url('../assets/coma.svg');
-}
-@media screen and (max-width: 768px) {
-    .lecture_box::after{
-        top: 20px;
-        right: 16px;
-    }
-}
+
 </style>

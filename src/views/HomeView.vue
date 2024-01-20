@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="px-20">
+    <StudentDataDisplay />
     <DirectionSelection v-if="!selectedDirection" />
     <FacultySelection v-else-if="!selectedFaculty" />
     <CourseSelection v-else-if="!selectedCourse" />
@@ -14,6 +15,7 @@ import FacultySelection from "../components/FacultySelection.vue";
 import CourseSelection from "../components/CourseSelection.vue";
 import SemesterSelection from "../components/SemesterSelection.vue";
 import LanguageSelection from "../components/LanguageSelection.vue";
+import StudentDataDisplay from "../components/StudentDataDisplay.vue";
 export default {
   data() {
     return {
@@ -34,6 +36,7 @@ export default {
   components: {
     DirectionSelection,
     FacultySelection,
+    StudentDataDisplay,
     CourseSelection,
     SemesterSelection,
     LanguageSelection,

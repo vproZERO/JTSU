@@ -32,6 +32,7 @@ export default {
   methods: {
     selectSemester(semester) {
       this.$store.commit("setSemester", semester);
+      localStorage.setItem("semester", semester);
       this.$router.push({ name: "language" });
     },
     goBack(cource) {

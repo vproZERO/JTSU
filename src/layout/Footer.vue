@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:px-36 px-[20px] mt-[80px] py-[22px]">
+  <div class="lg:px-20 px-[20px] mt-[80px] py-[22px]">
     <div
       class="lg:flex block items-start justify-between w-full aos-inti aos-animate"
       data-aos="fade-up"

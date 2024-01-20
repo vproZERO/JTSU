@@ -11,7 +11,7 @@
 
 body {
   font-family: "SF Pro Display", sans-serif;
-  background-color: #f0f3f5;
+  background-color: #E8F4FC;
 }
 
 * {
@@ -23,6 +23,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  overflow: hidden;
 }
 ul,
 ol {

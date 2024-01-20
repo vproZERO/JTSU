@@ -24,8 +24,14 @@ export default {
   methods: {
     selectDirection(direction) {
       this.$store.commit("setDirection", direction);
+      localStorage.setItem("direction", direction);
       this.$router.push({ name: "faculty" });
     },
+  },
+  computed: {
+    savedDirection() {
+      return localStorage.getItem("direction");
+    }
   },
   data() {
     return {

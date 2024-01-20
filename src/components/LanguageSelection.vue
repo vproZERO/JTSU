@@ -40,6 +40,7 @@ export default {
   methods: {
     selectLanguage(language) {
       this.$store.commit("setLanguage", language);
+      localStorage.setItem("language", language);
       this.$router.push({ name: "someRoute" }); // Замените "someRoute" на ваш реальный маршрут
     },
     goBack(semester) {

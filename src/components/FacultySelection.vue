@@ -43,6 +43,7 @@ export default {
   methods: {
     selectFaculty(faculty) {
       this.$store.commit("setFaculty", faculty);
+      localStorage.setItem("faculty", faculty);
       this.$router.push({ name: "course" });
     },
     goBack(direction) {

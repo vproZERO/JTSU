@@ -11,13 +11,7 @@
       >
         {{ item.title }}
       </h2>
-      <ul class="list-disc text-[#1C414F] md:ml-[20px] ml-[16px]">
-        <li
-          class="text-[#1C414F] md:text-sm text-sx font-normal sm:mb-[5px] mb-[3px] opacity-[80%]"
-        >
-          7 лекции
-        </li>
-      </ul>
+      
       <div
         class="absolute bottom-[20px] right-[20px] sm:bottom-[30px] sm:right-[30px] sm:w-[80px] lg:w-[100px] lg:h-[100px] w-[60px] h-[60px] sm:h-[80px]"
       >
