@@ -13,7 +13,7 @@
 
 
         <div v-for="lecture in lectures" :key="lecture.id" class="lecture_box  cursor-pointer relative bg-white rounded-[10px] mb-[8px] lg:pt-[11px] md:pt-[15px] md:flex items-center justify-between  lg:pb-[11px] sm:pb-[7px] sm:pl-[13px] pt-[20px] pb-[28px] pl-[24px] pr-[42px] lg:pl-[20px] pr-[10px]">
-            <div class="flex items-center lg:gap-[16px] sm:gap-[9px] md:mb-[0] mb-[12px] w-[560px]">
+            <div class="flex items-center lg:gap-[16px] sm:gap-[9px] md:mb-[0] mb-[12px] lg:w-[560px]">
                 <span class="text-[#1C414F] font-normal text-lg md:block hidden">{{ lecture.id }}.</span>
                 <p class="max-w-[560px] text-[#1C414F] font-normal text-lg "> <span class="inline-block md:hidden">{{ lecture.id }}.</span> {{ lecture.name }}</p>
             </div>

@@ -10,13 +10,13 @@
                 <h2 class="opacity-[0.6] text-[#1C414F] font-normal text-base max-w-[171px]">Cамос. работа</h2>
             </div>
         </div>
-        <div v-for="lecture in lectures" :key="lecture.id" class="lecture_box  cursor-pointer relative bg-white rounded-[10px] mb-[8px] lg:pt-[11px] sm:pt-[15px] md:flex items-center lg:gap-[48px] md:gap-[18px] lg:pb-[11px] sm:pb-[7px] sm:pl-[13px] pt-[20px] pb-[28px] pl-[24px] pr-[42px] lg:pl-[20px] pr-[10px]">
-            <div class="flex items-center lg:gap-[16px] sm:gap-[9px] md:mb-[0] mb-[12px]">
+        <div v-for="lecture in lectures" :key="lecture.id" class="lecture_box  cursor-pointer relative bg-white rounded-[10px] mb-[8px] lg:pt-[11px] sm:pt-[15px] md:flex items-center justify-between lg:pb-[11px] sm:pb-[7px] sm:pl-[13px] pt-[20px] pb-[28px] pl-[24px] pr-[42px] lg:pl-[20px] pr-[10px]">
+            <div class="flex items-center lg:gap-[16px] sm:gap-[9px] md:mb-[0] mb-[12px] lg:w-[560px]">
                 <span class="text-[#1C414F] font-normal text-lg md:block hidden">{{ lecture.id }}.</span>
                 <p class="max-w-[560px] text-[#1C414F] font-normal text-lg "> <span class="inline-block md:hidden">{{ lecture.id }}.</span> {{ lecture.name }}</p>
             </div>
 
-            <div class="flex items-center xl:gap-[110px] gap-[30px]">
+            <div class="flex items-center justify-between w-[45%]">
                 <div class="flex items-center lg:gap-[8px] gap-[4px]">
                     <button class="sm:w-[24px] sm:h-[24px] w-[16px] h-[16px]">
                         <img :src="lecture.assignmentImg" :alt="lecture.name">
