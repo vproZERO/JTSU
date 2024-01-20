@@ -19,7 +19,7 @@
       >
         {{ $t('Возможно, в вашем вопросе есть опечатки или непонятные. Если вы хотите задать вопрос или предоставить.') }}
       </p>
-      <div class="flex items-center flex-wrap">
+      <div class="flex items-center flex-wrap gap-[4px]">
         <button
           v-if="
             savedUserData &&
