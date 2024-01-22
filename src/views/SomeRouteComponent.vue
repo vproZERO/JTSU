@@ -31,7 +31,7 @@ export default {
   methods: {
     async getItems() {
       try {
-        const res = await axios.get(
+         const res = await axios.get(
           "https://3adaba7887399f0b.mokky.dev/course"
         );
         this.items = res.data;

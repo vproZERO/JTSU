@@ -9,29 +9,34 @@
       </router-link>
 
       <button
-        v-if="localStorageDataExists"
         @click="goToMyDirection()"
-        class="bg-[#2BB231] transition hover:-translate-y-1 rounded-[8px] py-[14px] pl-[40px] pr-[42px] flex items-center gap-[8px] hover:bg-[#7DDD81]"
+        class="bg-[#2BB231] transition hover:-translate-y-1 rounded-[8px] py-[14px] pl-[20px] pr-[20px] flex items-center gap-[8px] hover:bg-[#7DDD81]"
       >
-        <div class="w-[24px] h-[24px]">
+        <div
+          v-if="
+            goToMyDirectionData === false && localStorageDataExists === true
+          "
+          class="w-[24px] h-[24px]"
+        >
           <img src="../assets/icon.svg" alt="icon svg" />
         </div>
-        <span class="text-white text-base font-normal">{{
-          $t("Мое направление")
-        }}</span>
-      </button>
-
-      <button
-        v-else
-        @click="goToMyDirection2()"
-        class="bg-[#2BB231] transition hover:-translate-y-1 rounded-[8px] py-[14px] pl-[40px] pr-[42px] flex items-center gap-[8px] hover:bg-[#7DDD81]"
-      >
-        <div class="w-[24px] h-[24px]">
+        <div v-if="goToMyDirectionData === true" class="w-[24px] h-[24px]">
+          <img src="../assets/close-icon.svg" alt="icon svg" />
+        </div>
+        <div v-if="localStorageDataExists === false" class="w-[24px] h-[24px]">
           <img src="../assets/icon2.svg" alt="icon svg" />
         </div>
-        <span class="text-white text-base font-normal">{{
-          $t("Выберите  направление")
-        }}</span>
+        <span
+          v-if="localStorageDataExists === true"
+          class="text-white text-base font-normal"
+          >{{ $t("Мое направление") }}</span
+        >
+        <span
+          v-if="localStorageDataExists === false"
+          @click="goToMyDirection2()"
+          class="text-white text-base font-normal"
+          >{{ $t("Выберите  направление") }}</span
+        >
       </button>
 
       <form
@@ -83,11 +88,127 @@
         <SwitchLan />
       </div>
     </div>
+    <div
+      class="z-40 absolute left-20 right-20 top-[100%]"
+      v-if="goToMyDirectionData"
+    >
+      <div
+        class="md:pt-[20px] md:pl-[20px] md:pr-[20px] px-[16px] pt-[16px] md:pb-[36px] pb-[24px] rounded-b-[6px] bg-white"
+      >
+        <p
+          class="max-w-[392px] mb-[15px] text-sm font-normal text-[#1C414F] opacity-[0.7]"
+        >
+          {{
+            $t(
+              "Возможно, в вашем вопросе есть опечатки или непонятные. Если вы хотите задать вопрос или предоставить."
+            )
+          }}
+        </p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center flex-wrap gap-[4px]">
+            <div
+              class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]"
+            >
+              <span
+                class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"
+              ></span>
+              <p class="text-[#2BB231] text-sm font-normal">
+                {{ savedUserData }}
+              </p>
+            </div>
+            <div
+              class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]"
+            >
+              <span
+                class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"
+              ></span>
+              <p class="text-[#2BB231] text-sm font-normal">
+                {{ savedUserFaculty }}
+              </p>
+            </div>
+            <div
+              class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]"
+            >
+              <span
+                class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"
+              ></span>
+              <p class="text-[#2BB231] text-sm font-normal">
+                {{ savedUserCourse }}
+              </p>
+            </div>
+            <div
+              class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]"
+            >
+              <span
+                class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"
+              ></span>
+              <p class="text-[#2BB231] text-sm font-normal">
+                {{ savedUserSemester }}
+              </p>
+            </div>
+            <div
+              class="py-[6px] px-[16px] flex items-center gap-[4px] bg-[#DFF4E0] rounded-[14px] border-[1px] border-[#2BB231]"
+            >
+              <span
+                class="block bg-[#2BB231] w-[8px] h-[8px] rounded-full"
+              ></span>
+              <p class="text-[#2BB231] text-sm font-normal">
+                {{ savedUserLanguage }}
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-[8px]">
+            <button
+              v-if="
+                savedUserData &&
+                savedUserFaculty &&
+                savedUserCourse &&
+                savedUserSemester &&
+                savedUserLanguage
+              "
+              @click="goDelete(direction)"
+              class="goBackBtn border border-[#2BB231] rounded-[25px] flex items-center gap-[5px] py-[12px] px-[16px] transition hover:-translate-y-1"
+            >
+              <div class="w-[16px] h-[16px]">
+                <img src="../assets/update2.svg" alt="update icon" />
+              </div>
+              <span class="text-[#2BB231] text-sm font-normal">{{
+                $t("Сбросить")
+              }}</span>
+            </button>
+
+            <button
+              v-if="
+                savedUserData &&
+                savedUserFaculty &&
+                savedUserCourse &&
+                savedUserSemester &&
+                savedUserLanguage
+              "
+              @click="goBack(direction)"
+              class="goBackBtn bg-[#2BB231] rounded-[25px] flex items-center gap-[5px] py-[12px] px-[16px] transition hover:-translate-y-1"
+            >
+              <div class="w-[16px] h-[16px]">
+                <img src="../assets/update.svg" alt="update icon" />
+              </div>
+              <span class="text-white text-sm font-normal">{{
+                $t("Изменить")
+              }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <div
+    v-if="goToMyDirectionData"
+    class="absolute h-[100vh] top-[104px] left-0 right-0 bottom-0 z-10 bg-black opacity-[25%]"
+  ></div>
 </template>
 
 <script>
 import SwitchLan from "../components/SwitchLan.vue";
+import Swal from "sweetalert2";
 export default {
   data() {
     return {
@@ -98,6 +219,7 @@ export default {
       isSearchFormVisible: false,
       searchQuery: "",
       localStorageDataExists: false,
+      goToMyDirectionData: false,
     };
   },
   watch: {
@@ -146,8 +268,45 @@ export default {
         localStorage.getItem("semester") &&
         localStorage.getItem("language")
       ) {
-        this.$router.push({ name: "someRoute" });
+        this.goToMyDirectionData = !this.goToMyDirectionData;
+        console.log(this.goToMyDirectionData);
+      } else {
+        this.goToMyDirectionData = false;
       }
+    },
+    goBack(direction, faculty, course, semester, language) {
+      localStorage.removeItem("direction");
+      localStorage.removeItem("faculty");
+      localStorage.removeItem("course");
+      localStorage.removeItem("semester");
+      localStorage.removeItem("language");
+      this.$router.push({ name: "direction" });
+      this.goToMyDirectionData = false;
+    },
+    goDelete() {
+      localStorage.removeItem("direction");
+      localStorage.removeItem("faculty");
+      localStorage.removeItem("course");
+      localStorage.removeItem("semester");
+      localStorage.removeItem("language");
+      this.goToMyDirectionData = false;
+      Swal.fire({
+        title: "Вы уверены?",
+        text: "Ваши данные будут удалены!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Да, удалить!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Удалено!",
+            text: "Ваши данные были удалены.",
+            icon: "success",
+          });
+        }
+      });
     },
     goToMyDirection2() {
       if (!localStorage.getItem("direction")) {
@@ -158,6 +317,23 @@ export default {
       const localStorageData = localStorage.getItem("direction");
 
       this.localStorageDataExists = !!localStorageData;
+    },
+  },
+  computed: {
+    savedUserData() {
+      return localStorage.getItem("direction");
+    },
+    savedUserFaculty() {
+      return localStorage.getItem("faculty");
+    },
+    savedUserCourse() {
+      return localStorage.getItem("course");
+    },
+    savedUserSemester() {
+      return localStorage.getItem("semester");
+    },
+    savedUserLanguage() {
+      return localStorage.getItem("language");
     },
   },
   components: {

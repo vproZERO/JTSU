@@ -1,21 +1,35 @@
 <template>
   <div class="lg:px-20 px-[20px] py-[20px]">
-    <h2 class="text-2xl font-medium text-[#1C414F] sm:mb-[20px] mb-[16px]">
-      {{ $t("Предметы") }}
-    </h2>
-    <div
-      class="items_container grid lg:grid-cols-3 grid-cols-2 gap-[20px] sm:gap-y-[20px] gap-y-[15px]"
-    >
-      <Items />
-    </div>
+
+  <Lessons :lessons="lessons"/>
   </div>
 </template>
 <script>
-import Items from "../components/Items.vue";
+import axios from "axios";
+import Lessons from "../components/Lessons.vue";
 export default {
-  components: {
-    Items,
+  data() {
+    return {
+      lessons: [],
+    }
   },
+  components: {
+    Lessons,
+  },
+  mounted() {
+    this.getLessons();
+  },
+  methods: {
+    async getLessons() {
+      try {
+        const res = await axios.get("https://3adaba7887399f0b.mokky.dev/course");
+
+        this.lessons = res.data;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
 };
 </script>
 <style lang=""></style>
