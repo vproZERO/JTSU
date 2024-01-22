@@ -1,16 +1,16 @@
 <template>
-  <div class="lg:px-20 px-[20px] py-[20px] bg-white relative">
+  <div class="xl:px-20 px-[16px] py-[20px] bg-white relative">
     <div class="flex items-center justify-between">
       <router-link
         to="/"
-        class="lg:w-[216px] w-[188px] mr-[59px] sm:mr-[30px] md:mr-[30px]"
+        class="xl:w-[216px] w-[188px]  xl:h-[44px]"
       >
         <img src="../assets/logo.svg" alt="logo" />
       </router-link>
 
       <button
         @click="goToMyDirection()"
-        class="bg-[#2BB231] transition hover:-translate-y-1 rounded-[8px] py-[14px] pl-[20px] pr-[20px] flex items-center gap-[8px] hover:bg-[#7DDD81]"
+        class="bg-[#2BB231] hidden xl:flex transition hover:-translate-y-1 rounded-[8px] 2xl:py-[14px] 2xl:pl-[20px] 2xl:pr-[20px] lg:py-[14px] lg:px-[20px] flex items-center gap-[8px] hover:bg-[#7DDD81]"
       >
         <div
           v-if="
@@ -40,9 +40,9 @@
       </button>
 
       <form
-        class="md:bg-[#F0F3F5] md:hover:bg-[#E0E7EB] md:flex items-center active:bg-[#F0F3F5] active:border-[#1C414F] md:rounded-[8px] lg:py-[14px] md:py-[18px] md:pl-[18px] lg:pl-[28px] bg-white p-0"
+        class="md:bg-[#F0F3F5] md:flex hidden  md:hover:bg-[#E0E7EB] md:flex items-center active:bg-[#F0F3F5] active:border-[#1C414F] md:rounded-[8px] py-[14px]   pl-[28px] bg-white p-0"
       >
-        <div class="md:flex hidden items-center gap-[15px]">
+        <div class="flex items-center gap-[15px]">
           <div class="w-[26px] h-[24px]">
             <img src="../assets/search.svg" alt="search " />
           </div>
@@ -56,37 +56,8 @@
           />
         </div>
       </form>
-      <div class="flex items-center gap-[24px]">
-        <button
-          @click="toggleSearchForm"
-          class="search-icon h-[24px] md:hidden block hover:-translate-y-1 transition"
-        >
-          <div class="w-[24px] h-[24px]">
-            <img src="../assets/search.svg" alt="search" />
-          </div>
-        </button>
-        <form
-          v-if="isSearchFormVisible"
-          @submit.prevent="performSearch"
-          class="search-form flex items-center justify-between"
-        >
-          <button
-            @click="closeIsSearchForm"
-            class="-rotate-180 hover:-translate-x-1 transition"
-          >
-            <img src="../assets/right-arrow.svg" alt="arrow" />
-          </button>
-          <input
-            v-model="searchQuery"
-            type="text"
-            name="search"
-            placeholder="Поиск..."
-            class="search-input"
-          />
-        </form>
-
-        <SwitchLan />
-      </div>
+      
+      <SwitchLan />
     </div>
     <div
       class="z-40 absolute left-20 right-20 top-[100%]"
@@ -204,6 +175,69 @@
     v-if="goToMyDirectionData"
     class="absolute h-[100vh] top-[104px] left-0 right-0 bottom-0 z-10 bg-black opacity-[25%]"
   ></div>
+  <div class="flex xl:hidden items-center justify-between p-[16px]">
+    <button
+        @click="goToMyDirection()"
+        class="bg-[#2BB231] transition hover:-translate-y-1 rounded-[8px]  py-[14px] px-[20px] flex items-center gap-[8px] hover:bg-[#7DDD81]"
+      >
+        <div
+          v-if="
+            goToMyDirectionData === false && localStorageDataExists === true
+          "
+          class="w-[24px] h-[24px]"
+        >
+          <img src="../assets/icon.svg" alt="icon svg" />
+        </div>
+        <div v-if="goToMyDirectionData === true" class="w-[24px] h-[24px]">
+          <img src="../assets/close-icon.svg" alt="icon svg" />
+        </div>
+        <div v-if="localStorageDataExists === false" class="w-[24px] h-[24px]">
+          <img src="../assets/icon2.svg" alt="icon svg" />
+        </div>
+        <span
+          v-if="localStorageDataExists === true"
+          class="text-white text-base font-normal"
+          >{{ $t("Мое направление") }}</span
+        >
+        <span
+          v-if="localStorageDataExists === false"
+          @click="goToMyDirection2()"
+          class="text-white text-base font-normal"
+          >{{ $t("Выберите  направление") }}</span
+        >
+      </button>
+      <div class="flex items-center ">
+        <button
+          @click="toggleSearchForm"
+          class="search-icon h-[24px] md:hidden flex items-center gap-[8px] hover:-translate-y-1 transition"
+        >
+          <div class="w-[24px] h-[24px]">
+            <img src="../assets/search.svg" alt="search" />
+          </div>
+          <span class="text-[#1C414F] text-base font-medium">Поиск</span>
+        </button>
+        <form
+          v-if="isSearchFormVisible"
+          @submit.prevent="performSearch"
+          class="search-form flex items-center justify-between"
+        >
+          <button
+            @click="closeIsSearchForm"
+            class="-rotate-180 hover:-translate-x-1 transition"
+          >
+            <img src="../assets/right-arrow.svg" alt="arrow" />
+          </button>
+          <input
+            v-model="searchQuery"
+            type="text"
+            name="search"
+            placeholder="Поиск..."
+            class="search-input"
+          />
+        </form>
+
+      </div>
+  </div>
 </template>
 
 <script>
